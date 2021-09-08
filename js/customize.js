@@ -1,5 +1,13 @@
 // 自行加入的JS請寫在這裡
-$(function() {
+$(function () {
+    //sticky sidebar
+    var stickySidebar = new StickySidebar('.left_block', {
+        containerSelector: '.main',
+        topSpacing: 93,
+        bottomSpacing: 0,
+        minWidth: 768,
+        resizeSensor: true,
+    });
     // 首頁輪播
     $('.mpSlider').slick({
         mobileFirst: true,
@@ -12,10 +20,10 @@ $(function() {
         lazyLoaded: true,
         lazyLoad: 'ondemand',
         ease: 'ease',
-        customPaging: function(slider, i) {
+        customPaging: function (slider, i) {
             var title = $(slider.$slides[i]).find('img').attr('alt').trim();
             return $('<button type="button" aria-label="' + title + '"/>').text(title);
-        }
+        },
     });
     // 廣告輪播
     $('.adSlider').slick({
@@ -30,28 +38,32 @@ $(function() {
         lazyLoaded: true,
         lazyLoad: 'ondemand',
         ease: 'ease',
-        responsive: [{
-            breakpoint: 1200,
-            settings: {
-                slidesToShow: 5,
-                slidesToScroll: 1,
-                arrows: true
-            }
-        }, {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                arrows: true
-            }
-        }, {
-            breakpoint: 575,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                arrows: true
-            }
-        }]
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 1,
+                    arrows: true,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    arrows: true,
+                },
+            },
+            {
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    arrows: true,
+                },
+            },
+        ],
     });
     //燈箱slick+lightBox組合
     $('.cp_slider').slick({
@@ -68,39 +80,43 @@ $(function() {
         accessibility: true,
         lazyLoad: 'ondemand',
         ease: 'ease',
-        responsive: [{
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                infinite: true,
-                dots: true
-            }
-        }, {
-            breakpoint: 545,
-            settings: {
-                arrows: true,
-                slidesToShow: 2,
-                slidesToScroll: 2
-            }
-        }, {
-            breakpoint: 480,
-            settings: {
-                arrows: true,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: false
-            }
-        }]
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true,
+                },
+            },
+            {
+                breakpoint: 545,
+                settings: {
+                    arrows: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                },
+            },
+        ],
     });
     $('.cp_slider').slickLightbox({
         caption: 'caption',
         lazyLoad: 'ondemand',
         useHistoryApi: 'true',
         ease: 'ease',
-        lazy: true
+        lazy: true,
     });
-    // 
+    //
     $('.cppic_slider').slick({
         dots: true,
         infinite: false,
@@ -115,33 +131,37 @@ $(function() {
         // accessibility: true,
         // lazyLoad: 'ondemand',
         // ease: 'ease',
-        responsive: [{
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                infinite: true,
-                dots: true
-            }
-        }, {
-            breakpoint: 545,
-            settings: {
-                arrows: true,
-                slidesToShow: 2,
-                slidesToScroll: 2
-            }
-        }, {
-            breakpoint: 480,
-            settings: {
-                arrows: true,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: false
-            }
-        }]
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true,
+                },
+            },
+            {
+                breakpoint: 545,
+                settings: {
+                    arrows: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                },
+            },
+        ],
     });
     // cp_photo
-    $('.Slider-for').on('init reInit afterChange', function(event, slick, currentSlide) {
+    $('.Slider-for').on('init reInit afterChange', function (event, slick, currentSlide) {
         var i = (currentSlide ? currentSlide : 0) + 1;
         $('.controls').html(i + '/' + slick.slideCount);
     });
@@ -154,7 +174,7 @@ $(function() {
         swipeToSlide: false,
         lazyLoad: 'ondemand',
         asNavFor: '.Slider-nav',
-        infinite: true
+        infinite: true,
     });
     $('.Slider-nav').slick({
         slidesToShow: 2,
@@ -164,6 +184,6 @@ $(function() {
         arrows: true,
         lazyLoad: 'ondemand',
         focusOnSelect: true,
-        infinite: true
+        infinite: true,
     });
 });

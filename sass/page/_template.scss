@@ -33,7 +33,7 @@ body {
 }
 .main {
     position: relative;
-    margin: 0 auto;
+    margin: 0 auto 5em;
     @include screen('mobile') {
         padding-top: 60px;
     }
@@ -60,6 +60,7 @@ body {
         flex-basis: 260px;
         max-width: 260px;
         margin-right: 40px;
+        align-self: flex-start;
         &.hidden {
             + .center_block {
                 flex: none;
