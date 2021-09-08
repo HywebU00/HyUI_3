@@ -2,47 +2,72 @@
     box-sizing: border-box;
     position: relative;
     z-index: 99;
-    // 預設選單 ul
     clear: both;
+
+    &.sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        background-color: #fff;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        &:after {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        & > ul {
+            width: 100%;
+            max-width: $container-max;
+            margin: 0 auto;
+        }
+    }
     @include screen('mobile') {
         display: none;
     }
-    >ul {
+    // 預設選單 ul
+    > ul {
         margin: 0;
         padding: 0;
         list-style-type: none;
         display: flex;
         flex-wrap: wrap;
         // 第一層選單樣式
-        >li {
+        > li {
             flex: 0 1 16%;
-            >a {
+            > a {
                 display: block;
                 padding: 0 1em;
                 min-height: 2.5em;
                 font-weight: bold;
                 line-height: 2.5em;
+                white-space: nowrap;
                 color: $color-word;
             }
             &.hasChild {
-                >a {
+                > a {
                     &:after {
                         content: '';
                         width: 4px;
                         height: 4px;
                         display: inline-block;
-                        margin-left: .5em;
+                        margin-left: 0.5em;
                         vertical-align: middle;
                         border: 2px solid lighten($color-word, 40);
                         transform: rotate(135deg);
                         border-bottom: none;
                         border-left: none;
-                        margin-bottom: .2em;
+                        margin-bottom: 0.2em;
                     }
                 }
             }
             &:hover {
-                >a {
+                > a {
                     color: $aHover;
                     &:after {
                         border: 2px solid $aHover;
@@ -65,7 +90,7 @@
                 display: none;
                 overflow: visible;
                 width: 99%;
-                background: rgba(0, 0, 0, .8);
+                background: rgba(0, 0, 0, 0.8);
                 padding: 0;
                 z-index: 999999;
                 position: absolute;
@@ -73,25 +98,26 @@
                 left: 0;
                 list-style: none;
                 text-align: left;
-                animation: showMenu .3s ease-out;
-                font-size: .875em;
+                animation: showMenu 0.3s ease-out;
+                font-size: 0.875em;
                 // 第二層選單樣式
                 li {
                     float: none;
                     a {
-                        padding: .6em 1.2em;
-                        color: #FFF;
+                        padding: 0.6em 1.2em;
+                        color: #fff;
                         font-weight: bold;
-                        &:hover, &:focus {
+                        &:hover,
+                        &:focus {
                             background: $aHover;
                         }
                     }
                 }
                 li.hasChild {
-                    >ul {
+                    > ul {
                         z-index: 999;
                     }
-                    >a {
+                    > a {
                         padding-right: 2em;
                         &:hover,
                         &:focus {
@@ -104,7 +130,7 @@
                             top: 1.3em;
                             width: 6px;
                             height: 6px;
-                            border: 2px solid #FFF;
+                            border: 2px solid #fff;
                             transform: rotate(45deg);
                             border-bottom: none;
                             border-left: none;
@@ -138,8 +164,8 @@
     .menu {
         display: block;
     }
-    >.menu_overlay {
-        background: RGBA(0, 0, 0, .5);
+    > .menu_overlay {
+        background: RGBA(0, 0, 0, 0.5);
         position: fixed;
         top: 0;
         left: 0;
@@ -155,12 +181,12 @@
     }
     .m_area {
         &:before {
-            content: "";
+            content: '';
             width: 280px;
             position: absolute;
             top: 0;
             left: 0;
-            color: #FFF;
+            color: #fff;
             width: 100%;
             height: 3em;
             background: $primaryColor;
@@ -168,14 +194,14 @@
             line-height: 3em;
             box-sizing: border-box;
         }
-        width:280px;
+        width: 280px;
         padding: 3em 0;
-        position:absolute;
+        position: absolute;
         top: 0;
         left: 0;
         height: 100%;
         background: $primaryColor;
-        overflow:hidden;
+        overflow: hidden;
         overflow-y: auto;
         z-index: 9999;
         -webkit-overflow-scrolling: touch;
@@ -183,14 +209,14 @@
         box-sizing: border-box;
         .menu {
             width: 100%;
-            @include box-shadow(0px 0px 4px RGBA(0, 0, 0, .4));
+            box-shadow: 0px 0px 4px RGBA(0, 0, 0, 0.4);
             margin-bottom: 1em;
-            background: #CCC;
+            background: #ccc;
             a {
                 display: block;
                 color: #222;
                 text-decoration: none;
-                transition: .4s ease-out;
+                transition: 0.4s ease-out;
                 text-align: left;
             }
             ul {
@@ -198,18 +224,18 @@
                 li {
                     flex: 1 1 100%;
                     flex-direction: column;
-                    >a {
-                        padding: .5em 1em;
+                    > a {
+                        padding: 0.5em 1em;
                         min-height: 2em;
                         line-height: 2em;
-                        background: #FFF;
-                        border-bottom: 1px solid #CCC;
+                        background: #fff;
+                        border-bottom: 1px solid #ccc;
                     }
                     &.hasChild {
-                        >a {
-                            padding: .5em 1em;
+                        > a {
+                            padding: 0.5em 1em;
                             color: #222;
-                            background: #FFF;
+                            background: #fff;
                             padding-right: 36px;
                             position: relative;
                             &:after {
@@ -224,7 +250,7 @@
                                 transform: rotate(45deg);
                                 border-top: none;
                                 border-left: none;
-                                transition: .3s;
+                                transition: 0.3s;
                             }
                         }
                     }
@@ -239,7 +265,7 @@
                                 display: block;
                                 min-height: 1.5em;
                                 line-height: 1.5em;
-                                padding: .5em 1em .5em 2em !important;
+                                padding: 0.5em 1em 0.5em 2em !important;
                                 background: #eee;
                                 &:hover,
                                 &:focus {
@@ -248,26 +274,25 @@
                                 }
                             }
                             &.hasChild {
-                                >a {
+                                > a {
                                     background: #eee;
                                 }
                             }
-                            ul{
-                                left:0;
+                            ul {
+                                left: 0;
 
                                 li {
                                     a {
-                                        background: rgba(0, 0, 0, .15) !important;
-                                        padding: .5em 1em .5em 4em !important;
-                                        border-bottom: 1px solid #BBB;
+                                        background: rgba(0, 0, 0, 0.15) !important;
+                                        padding: 0.5em 1em 0.5em 4em !important;
+                                        border-bottom: 1px solid #bbb;
                                         &:hover,
                                         &:focus {
-                                            background: rgba(0, 0, 0, .25) !important;
+                                            background: rgba(0, 0, 0, 0.25) !important;
                                         }
                                         &:after {
                                             display: none !important;
                                         }
-
                                     }
                                 }
                             }
@@ -287,7 +312,7 @@
             padding: 0;
             overflow: hidden;
             list-style: none;
-            border: 1px solid rgba(255, 255, 255, .5);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             border-bottom: none;
             border-right: none;
             li {
@@ -303,12 +328,12 @@
                     display: block;
                     height: 3em;
                     line-height: 2em;
-                    padding: .5em 1em;
-                    font-size: .938em;
-                    color: #FFF;
+                    padding: 0.5em 1em;
+                    font-size: 0.938em;
+                    color: #fff;
                     font-weight: bold;
                     text-decoration: none;
-                    border: 1px solid rgba(255, 255, 255, .5);
+                    border: 1px solid rgba(255, 255, 255, 0.5);
                     box-sizing: border-box;
                     &:nth-child(odd) {
                         border-left: none;
@@ -326,13 +351,13 @@
             width: 100%;
             @include gutter;
             a {
-                padding: .6em 1em;
-                background: rgba(0, 0, 0, .4);
+                padding: 0.6em 1em;
+                background: rgba(0, 0, 0, 0.4);
                 &:after {
                     top: 1.3em;
                 }
                 &:before {
-                    top: .8em;
+                    top: 0.8em;
                 }
             }
             ul {
@@ -347,7 +372,7 @@
                     width: 100% !important;
                     a {
                         border: none;
-                        background: rgba(0, 0, 0, .4);
+                        background: rgba(0, 0, 0, 0.4);
                     }
                 }
             }
@@ -372,7 +397,7 @@
             width: 15px;
             height: 15px;
             border: 3px solid #eee;
-            content: "";
+            content: '';
             top: 15px;
             right: 10px;
             transform: rotate(45deg);

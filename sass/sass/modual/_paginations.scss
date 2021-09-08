@@ -1,30 +1,29 @@
 .pagination {
-    margin: .5em auto;
+    margin: 0.5em auto;
     padding: 0;
     display: block;
     text-align: center;
-    font-size: .938em;
+    font-size: 0.938em;
     @extend %clearfix; // outline: 1px solid red;
-    .form_inline{
+    .form_inline {
         justify-content: center;
     }
     span {
         color: $primaryColor;
-        margin: 0px .5em;
+        margin: 0px 0.5em;
     }
     .page {
         margin: 10px auto;
         padding: 0;
         display: flex;
-        justify-content:center;
-        flex-wrap:wrap;
+        justify-content: center;
+        flex-wrap: wrap;
         li {
             min-width: 40px;
             height: 40px;
             margin: 2px;
             list-style: none;
-            flex:0 0 40px;
-
+            flex: 0 0 40px;
             box-sizing: border-box;
             a {
                 border-radius: 5px;
@@ -34,9 +33,9 @@
                 white-space: nowrap;
                 font-size: 1em;
                 color: $color-word;
-                // @include gradient (#F7F7F7, #EAEAEA, vertical);
                 background: #eee;
                 border: #ccc solid 1px;
+                margin: 0 0.1em 0.25em;
                 &:hover,
                 &:focus {
                     background: $primaryColor;
@@ -52,7 +51,7 @@
                 }
             }
             %arrow {
-                content: "";
+                content: '';
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -70,9 +69,11 @@
                 a {
                     text-indent: -9999px;
                     position: relative;
-                    &:hover, &:focus {
-                        &:before, &:after {
-                            border: 2px solid #FFF;
+                    &:hover,
+                    &:focus {
+                        &:before,
+                        &:after {
+                            border: 2px solid #fff;
                             border-left: none;
                             border-bottom: none;
                         }
@@ -124,14 +125,14 @@
         display: inline-block;
         vertical-align: middle;
         select {
-            margin: 0px .5em;
+            margin: 0px 0.5em;
             @include screen('mobile') {
                 margin: 0px;
             }
         }
-        .btn{
+        .btn {
             min-width: auto;
-            padding: .4em 1em !important;
+            padding: 0.4em 1em !important;
         }
         // input[type="button"] {
         //     @include gradient(#F7F7F7, #EAEAEA, vertical);
@@ -154,7 +155,7 @@
     .items {
         display: inline-block;
         vertical-align: middle;
-        
+
         a {
             padding: 0 5px;
             color: $primaryColor;

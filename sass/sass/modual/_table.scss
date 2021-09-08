@@ -18,10 +18,10 @@ table {
     //     }
     // }
     td {
-        padding: .5em;
+        padding: 0.5em;
         text-align: left;
     }
-    td{
+    td {
         border: #ddd 1px solid;
         word-break: break-all;
         a {
@@ -29,20 +29,20 @@ table {
         }
     }
     th {
-        background-color: #F3F3F3;
+        background-color: #f3f3f3;
         color: #333;
-        border: #DDD 1px solid;
+        border: #ddd 1px solid;
         text-align: center;
         white-space: nowrap;
     }
     &.table_hover {
         tr:hover {
-            background: #F3F3F3;
+            background: #f3f3f3;
         }
     }
     &.table_sprite {
         tr:nth-child(even) {
-            background: #F5F5F5;
+            background: #f5f5f5;
         }
     }
 }
@@ -70,20 +70,23 @@ table {
             border: none !important;
             border-bottom: 1px solid #eee !important;
             position: relative;
-            padding-left: 35% !important;
+            padding-left: 0.5em !important;
+            padding-top: 2em;
+
             white-space: normal;
             text-align: left;
             &:before {
                 content: attr(data-title);
                 position: absolute;
-                top: .5em;
-                left: .5em;
+                top: 0.5em;
+                left: 0.5em;
                 width: 30%;
                 padding-right: 10px;
                 white-space: nowrap;
                 text-align: left;
-                font-weight: bold;
-                color: #000;
+                font-weight: normal;
+                color: #888;
+                font-size: 0.688rem;
             }
         }
     }
@@ -110,7 +113,7 @@ table {
     th,
     td {
         width: 10em;
-        padding: .8em 0;
+        padding: 0.8em 0;
         text-align: center;
         line-height: 1.2;
         @include screen('mobile') {
@@ -161,8 +164,8 @@ table {
         }
     }
 }
-.scroltable{
-    min-width:600px !important;
+.scroltable {
+    min-width: 600px !important;
 }
 .scroltable-wrapper {
     position: relative;
@@ -183,7 +186,7 @@ table {
 }
 .scroltable-nav.scroltable-nav-left {
     left: 0;
-    @include gradient(rgba(255,255,255,1),rgba(255,255,255,0),horizontal);
+    @include gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0), horizontal);
     .tablearrow_left {
         position: fixed;
         left: 0em;
@@ -196,11 +199,11 @@ table {
         &:before {
             position: absolute;
             top: 0em;
-            left: -.2em;
+            left: -0.2em;
             width: 30px;
             height: 30px;
             background: url(../vendor/scrolltable/images/arrow-left.png) no-repeat 10px center;
-            content: "";
+            content: '';
             z-index: 2;
             // animation: arrow_left .3s linear infinite alternate;
         }
@@ -208,7 +211,7 @@ table {
 }
 .scroltable-nav.scroltable-nav-right {
     right: 0;
-    @include gradient(rgba(255,255,255,0),rgba(255,255,255,1),horizontal);
+    @include gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), horizontal);
     .tablearrow_right {
         position: fixed;
         top: 0em;
@@ -221,28 +224,28 @@ table {
         &:before {
             position: absolute;
             top: 0em;
-            right: -.2em;
+            right: -0.2em;
             width: 30px;
             height: 30px;
             background: url(../vendor/scrolltable/images/arrow-right.png) no-repeat right 10px center;
-            content: "";
+            content: '';
             z-index: 2;
         }
     }
 }
 @keyframes arrow_left {
     from {
-        left: -.2em;
+        left: -0.2em;
     }
     to {
-        left: .3em;
+        left: 0.3em;
     }
 }
 @keyframes arrow_right {
     from {
-        right: -.2em;
+        right: -0.2em;
     }
     to {
-        right: .3em;
+        right: 0.3em;
     }
 }

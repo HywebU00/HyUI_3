@@ -20,7 +20,7 @@ body {
     width: 100%;
     margin: 0px auto;
     @include screen('mobile') {
-        background: #FFF;
+        background: #fff;
         overflow: hidden;
         overflow-y: auto;
     }
@@ -34,7 +34,9 @@ body {
 .main {
     position: relative;
     margin: 0 auto;
-    padding: 1em 0 0 0;
+    @include screen('mobile') {
+        padding-top: 60px;
+    }
     // 可先設定一個中央區塊最大寬，限制accesskey對齊
     h2 {
         line-height: 1.25em;
@@ -43,7 +45,8 @@ body {
 ////////////////////////////////////////////////////////////
 // 為了與首頁區隔，請在內頁加上innerpage ClassName
 .innerpage {
-    >.container {
+    > .container {
+        padding-top: 1em;
         @include gutter(); //gutter 代表左右要留白
         display: flex;
     }
@@ -58,20 +61,20 @@ body {
         max-width: 260px;
         margin-right: 40px;
         &.hidden {
-            +.center_block {
+            + .center_block {
                 flex: none;
                 flex-basis: 100%;
                 max-width: 100%;
             }
         }
-        +.center_block {
+        + .center_block {
             flex: auto;
             flex-basis: calc(100% - 300px);
             max-width: calc(100% - 300px);
         }
         @include screen('tablet') {
             display: none;
-            +.center_block {
+            + .center_block {
                 flex: none;
                 flex-basis: 100%;
                 max-width: 100%;
@@ -79,7 +82,7 @@ body {
         }
     }
     &.small_size {
-        font-size: .938em;
+        font-size: 0.938em;
     }
     &.large_size {
         font-size: 1.125em;

@@ -2,23 +2,23 @@
 
 // tab的外框線
 a:focus {
-  outline: none;
-  box-shadow: 0 0px 0px 2px $aFocus inset;
-  @include screen('mobile') {
-    box-shadow: none;
-  }
+    outline: none;
+    box-shadow: 0 0px 0px 2px $aFocus inset;
+    @include screen('mobile') {
+        box-shadow: none;
+    }
 }
 // 導盲磚
 .accesskey {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  z-index: 9;
-  color: $color-word;
-  font-size: $font-size;
-  @include screen("mobile") {
-    display: none;
-  }
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 9;
+    color: $color-word;
+    font-size: $font-size;
+    @include screen('mobile') {
+        display: none;
+    }
 }
 
 a.goCenter {
@@ -26,43 +26,48 @@ a.goCenter {
     top: -2.2em;
     left: 50%;
     margin-left: -480px;
-    padding: 0 .5em;
+    padding: 0 0.5em;
     height: 2em;
     line-height: 2em;
-    background: $secondaryColor;
+    background: $primaryColor;
     color: #fff;
     text-decoration: none;
     z-index: 999999999999;
     opacity: 0;
-    transition: .5s;
+    transition: 0.5s;
     border-radius: 0px 0px 4px 4px;
-    color: #FFF;
-    @include screen("mobile") {
+    color: #fff;
+    @include screen('mobile') {
         display: none;
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
+        background: lighten($primaryColor, 10);
         outline: none;
         top: 0;
         opacity: 1;
+        box-shadow: none;
+        color: #fff;
     }
 }
 // no-js
 .no-js {
     noscript {
         display: block;
-        padding: .5em;
+        padding: 0.5em;
         border: 2px solid $primaryColor;
-        background: #FFF;
+        background: #fff;
         color: #666;
         overflow: hidden;
         line-height: 1.45em;
-        font-size: .813em;
-        margin: 0 .5em .5em;
+        font-size: 0.813em;
+        margin: 0 0.5em 0.5em;
         border-radius: 4px;
         box-sizing: border-box;
         a {
             color: $primaryColor;
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 color: $aHover;
             }
         }
@@ -84,7 +89,7 @@ a.goCenter {
             width: auto;
             position: absolute;
             right: 160px;
-            >a {
+            > a {
                 display: none;
             }
             ul {
@@ -114,7 +119,7 @@ a.goCenter {
             color: #000;
             margin-bottom: 0px;
             border-bottom: 3px solid #ddd;
-            >a {
+            > a {
                 background: none;
                 font-size: 1.5em;
                 color: #000;
@@ -128,7 +133,7 @@ a.goCenter {
                 display: block;
                 position: relative;
                 border-bottom: 3px solid #ddd;
-                >a {
+                > a {
                     color: #000;
                     background: none;
                 }
@@ -160,7 +165,7 @@ a.goCenter {
             display: inline-block;
             width: 22%;
             margin: 0 1% 1em;
-            border: 1px solid #DDD;
+            border: 1px solid #ddd;
             @include screen('mobile') {
                 width: 47%;
                 margin: 0 1% 1em;
@@ -172,7 +177,7 @@ a.goCenter {
     }
     img.lazy {
         display: none;
-        &+noscript {
+        & + noscript {
             img {
                 display: block;
                 object-fit: cover;
