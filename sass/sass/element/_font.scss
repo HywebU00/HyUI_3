@@ -55,3 +55,51 @@ kbd {
         border: none;
     }
 }
+.font_size {
+    display: flex;
+    align-items: center;
+    flex: 0 1 12.5em;
+    margin-right: 0.5em;
+    span {
+        font-size: 0.875em;
+        color: #222;
+        padding-top: 0.3em;
+    }
+    ul {
+        @include li-reset;
+        display: flex;
+        flex: 0 0 6em;
+        li {
+            font-size: 1em;
+            flex: 0 0 auto;
+            margin: 2px;
+            align-items: center;
+            a {
+                display: block;
+                text-align: center;
+                line-height: 32px;
+                border-radius: 50%;
+                background: #f1f1f1;
+                width: 32px;
+                height: 32px;
+                color: #333;
+                &:hover,
+                &:focus,
+                &.active {
+                    background: $aHover;
+                    color: #fff;
+                    box-shadow: none;
+                }
+                &.small {
+                    font-size: 0.938em;
+                }
+                &.large {
+                    font-size: 1.125em;
+                }
+            }
+        }
+    }
+    @include screen('mobile') {
+        display: none;
+    }
+}
