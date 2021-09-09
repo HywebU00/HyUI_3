@@ -39,13 +39,13 @@ $(function () {
         _nav = $('.navigation'),
         _sidebarClose = $('.sidebarClose'),
         _sidebarCtrl = $('.sidebarCtrl'),
-        _overlay = $('.menu_overlay');
-    _mArea = $('.m_area');
+        _overlay = $('.menu_overlay'),
+        _mArea = $('.m_area');
     _sidebarCtrl.append('<span></span><span></span><span></span>');
     // -------------------------------------------- 打開選單 function
     function showSidebar() {
-        _sidebar.show().addClass('open');
-        _mArea.show();
+        _sidebar.show();
+        _mArea.show().addClass('open');
         _mArea.animate({ 'margin-left': 0 }, 400, 'easeOutQuint');
         _body.addClass('noscroll');
         _overlay.fadeIn();
@@ -56,7 +56,7 @@ $(function () {
     function hideSidebar() {
         _mArea.animate({ 'margin-left': _mArea.width() * -1 + 'px' }, 500, 'easeOutQuint', function () {
             _sidebar.fadeOut(200);
-            _sidebar.removeClass('open');
+            _mArea.removeClass('open');
             _mArea.hide();
         });
         _body.removeClass('noscroll');

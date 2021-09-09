@@ -16,24 +16,9 @@ $menuItems: 15;
     -webkit-overflow-scrolling: touch;
     -webkit-transform: translate3d(0, 0, 0);
     box-sizing: border-box;
-    &.open {
-        .m_area {
-            .menu {
-                & > ul {
-                    & > li {
-                        transform: scale(1) translateX(0px);
-                        opacity: 1;
-                        @for $i from 1 through $menuItems {
-                            &:nth-child(#{$i}) {
-                                transition-delay: #{0.07 * $i + 0.2}s;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .menu {
+
+    .menu,
+    .megamenu {
         display: block;
     }
     > .menu_overlay {
@@ -65,8 +50,24 @@ $menuItems: 15;
         -webkit-overflow-scrolling: touch;
         -webkit-transform: translate3d(0, 0, 0);
         box-sizing: border-box;
-
-        .menu {
+        &.open {
+            .menu,
+            .megamenu {
+                & > ul {
+                    & > li {
+                        transform: scale(1) translateX(0px);
+                        opacity: 1;
+                        @for $i from 1 through $menuItems {
+                            &:nth-child(#{$i}) {
+                                transition-delay: #{0.07 * $i + 0.2}s;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .menu,
+        .megamenu {
             width: 90%;
             margin: 0 auto 1em;
             a {
