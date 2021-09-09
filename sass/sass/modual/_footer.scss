@@ -53,9 +53,8 @@ footer {
                 padding: 0.25em 1em;
                 background: $primaryColor;
                 color: #fff;
-                border-radius: 4px;
                 text-align: center;
-                transition: all 0.3s ease-out;
+                transition: 0.3s ease-out;
                 white-space: nowrap;
                 &:hover,
                 &:focus {

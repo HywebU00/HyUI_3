@@ -6,6 +6,7 @@
     left: 0;
     z-index: 99;
     transition: 0.3s ease-out;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     @extend %clearfix;
     @include screen('mobile') {
         position: fixed;
@@ -126,11 +127,7 @@
         @include screen('mobile') {
             display: none;
         }
-        &.have_language {
-            padding-right: 160px;
-        }
         @extend %clearfix;
-        overflow: hidden;
         box-sizing: border-box;
         display: flex;
         .navlist {
@@ -156,11 +153,62 @@
             }
         }
 
+        // 字級
+        .font_size {
+            display: flex;
+            align-items: center;
+            flex: 0 1 12.5em;
+            span {
+                font-size: 0.875em;
+                color: #222;
+                padding-top: 0.3em;
+            }
+            ul {
+                @include li-reset;
+                display: flex;
+                flex: 0 0 6em;
+                li {
+                    font-size: 1em;
+                    flex: 0 0 auto;
+                    margin: 2px;
+                    align-items: center;
+                    a {
+                        display: block;
+                        text-align: center;
+                        line-height: 32px;
+                        border-radius: 50%;
+                        background: #f1f1f1;
+                        width: 32px;
+                        height: 32px;
+                        color: #333;
+                        &:hover,
+                        &:focus,
+                        &.active {
+                            background: $aHover;
+                            color: #fff;
+                            box-shadow: none;
+                        }
+                        &.small {
+                            font-size: 0.938em;
+                        }
+                        &.large {
+                            font-size: 1.125em;
+                        }
+                    }
+                }
+            }
+            @include screen('mobile') {
+                display: none;
+            }
+        }
         .language {
-            position: absolute;
-            right: 15px;
-            top: 0.35em;
-            font-size: 0.75em;
+            flex-grow: 0;
+            flex-shrink: 1;
+            flex-basis: 140px;
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            align-self: center;
         }
     }
 }
@@ -286,7 +334,7 @@
         .btn,
         .btn-search {
             min-width: auto;
-            padding: 0.45em 0.8em;
+            padding: 0.5em 0.8em;
             margin: 0;
             flex: 1 1 20%;
             max-width: 25%;
@@ -345,36 +393,36 @@
 }
 
 // header fix
-.header.fixed {
-    position: fixed;
-    width: 100%;
-    right: 0;
-    top: 0;
-    box-shadow: rgba(0, 0, 0, 0.5) 0 0 25px;
-    background: rgba(0, 0, 0, 0.75);
-    z-index: 999;
-    &:before {
-        background: rgba(0, 0, 0, 0.35);
-    }
-    @include screen('mobile') {
-        background: #fff;
-    }
-    .menu {
-        > ul {
-            > li {
-                > a {
-                    color: #fff;
-                }
-            }
-        }
-    }
-    .megamenu {
-        > ul {
-            > li {
-                > a {
-                    color: #fff;
-                }
-            }
-        }
-    }
-}
+// .header.fixed {
+//     position: fixed;
+//     width: 100%;
+//     right: 0;
+//     top: 0;
+//     box-shadow: rgba(0, 0, 0, 0.5) 0 0 25px;
+//     background: rgba(0, 0, 0, 0.75);
+//     z-index: 999;
+//     &:before {
+//         background: rgba(0, 0, 0, 0.35);
+//     }
+//     @include screen('mobile') {
+//         background: #fff;
+//     }
+//     .menu {
+//         > ul {
+//             > li {
+//                 > a {
+//                     color: #fff;
+//                 }
+//             }
+//         }
+//     }
+//     .megamenu {
+//         > ul {
+//             > li {
+//                 > a {
+//                     color: #fff;
+//                 }
+//             }
+//         }
+//     }
+// }

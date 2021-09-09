@@ -16,14 +16,6 @@ $(function () {
     /*-----------------------------------*/
     $('html').removeClass('no-js');
     /*-----------------------------------*/
-    //////////// nav如果有兩個選單///////// 這段沒有使用了
-    /*-----------------------------------*/
-    var _navLength = $('.navigation ul').length;
-    if (_navLength > 1) {
-        $('.navigation ul:nth-child(1)').addClass('left_nav');
-    }
-    $('.navigation').has('.language').addClass('have_language');
-    /*-----------------------------------*/
     /////// header選單 tab及 fix設定////////
     /*-----------------------------------*/
     var _menu = $('.menu'),
@@ -50,9 +42,9 @@ $(function () {
         _overlay = $('.menu_overlay');
     _mArea = $('.m_area');
     _sidebarCtrl.append('<span></span><span></span><span></span>');
-    // 打開選單 function
+    // -------------------------------------------- 打開選單 function
     function showSidebar() {
-        _sidebar.show();
+        _sidebar.show().addClass('open');
         _mArea.show();
         _mArea.animate({ 'margin-left': 0 }, 400, 'easeOutQuint');
         _body.addClass('noscroll');
@@ -60,22 +52,23 @@ $(function () {
         $('.m_search').hide();
         search_mode = false;
     }
-    // 縮合選單 function
+    // -------------------------------------------- 縮合選單 function
     function hideSidebar() {
         _mArea.animate({ 'margin-left': _mArea.width() * -1 + 'px' }, 500, 'easeOutQuint', function () {
             _sidebar.fadeOut(200);
+            _sidebar.removeClass('open');
             _mArea.hide();
         });
         _body.removeClass('noscroll');
         _overlay.fadeOut();
         liHasChild.children('ul').hide();
     }
-    // 打開選單動作
+    // -------------------------------------------- 打開選單動作
     _sidebarCtrl.off().click(function (e) {
         showSidebar();
         e.preventDefault();
     });
-    // 關閉動作
+    // -------------------------------------------- overlay關閉選單
     _overlay
         .add(_sidebarClose)
         .off()
@@ -83,8 +76,8 @@ $(function () {
             hideSidebar();
         });
     _overlay.off('mouseenter');
-    // 無障礙tab設定
-    // menu
+    // -------------------------------------------- 無障礙tab設定
+    // -------------------------------------------- menu
     liHasChild.children('a').keyup(function () {
         $(this).siblings('ul').fadeIn();
         $(this)
@@ -229,11 +222,6 @@ $(function () {
             /*-----------------------------------*/
             hideSidebar();
             _body.removeClass('noscroll');
-            // _nav.prependTo('.header .container');
-            // _search.appendTo('.header .container');
-            // _menu.appendTo('.header .container');
-            // _megamenu.appendTo('.header .container');
-            // _search.removeClass('m_search');
             $('.m_search').hide();
             search_mode = false;
             $('.language').find('ul').hide();
@@ -501,7 +489,7 @@ $(function () {
     /*-----------------------------------*/
     ///////////////置頂go to top////////////
     /*-----------------------------------*/
-    $(window).bind('scroll', function () {
+    $(window).on('scroll', function () {
         if ($(this).scrollTop() > 200) {
             $('.scrollToTop').fadeIn();
         } else {
@@ -511,12 +499,15 @@ $(function () {
     /*-----------------------------------*/
     /////click event to scroll to top//////
     /*-----------------------------------*/
-    $('.scrollToTop').click(function (e) {
-        $('html, body').stop().animate({ scrollTop: 0 }, 400, 'linear');
-        $('a.goCenter').focus(); //加入這行
-        e.preventDefault();
-    });
+    $('.scrollToTop')
+        .off()
+        .click(function (e) {
+            $('html, body').stop().animate({ scrollTop: 0 }, 400, 'linear');
+            // $('a.goCenter').focus(); //加入這行
+            e.preventDefault();
+        });
     $('.scrollToTop').keydown(function (e) {
+        $('html, body').stop().animate({ scrollTop: 0 }, 400, 'linear');
         _body.find('a.goCenter').focus();
         e.preventDefault();
     });

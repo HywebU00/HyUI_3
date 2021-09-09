@@ -3,8 +3,8 @@
     font-size: 0.75em;
     flex: 0 0 140px;
     width: 140px;
-    padding-top: 0.2em;
     z-index: 9999;
+    position: relative;
     > a {
         display: block;
         background: #555;
@@ -13,6 +13,9 @@
         padding: 0.2em 1em;
         position: relative;
         transition: 0.3s ease-out;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 100%;
         &:after {
             position: absolute;
             right: 0.8em;
@@ -41,9 +44,10 @@
     ul {
         background: #444;
         padding: 1em 1.5em;
-        display: flex;
-        flex-direction: column;
         display: none;
+        position: absolute;
+        width: 100%;
+        top: 100%;
         @include li-reset;
         li {
             flex: 1;
