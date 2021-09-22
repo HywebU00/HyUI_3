@@ -13,137 +13,137 @@
     <!-- hyUI -->
     <link rel="stylesheet" href="css/hyui.css">
     <style>
-        .demo_wrap {
-            max-width: 1000px;
-            margin: 0em auto 1em;
-            padding: 15px 15px 3em;
-            clear: both;
-            background: #FFF
-        }
+    .demo_wrap {
+        max-width: 1000px;
+        margin: 0em auto 1em;
+        padding: 15px 15px 3em;
+        clear: both;
+        background: #FFF
+    }
 
+    .demo_wrap h1 {
+        display: block;
+        margin: 0px auto;
+        max-width: 300px;
+        float: left;
+        margin-right: 1em
+    }
+
+    @media screen and (max-width:545px) {
         .demo_wrap h1 {
-            display: block;
-            margin: 0px auto;
-            max-width: 300px;
-            float: left;
-            margin-right: 1em
+            max-width: 100%;
+            float: none;
+            text-align: center
         }
+    }
 
-        @media screen and (max-width:545px) {
-            .demo_wrap h1 {
-                max-width: 100%;
-                float: none;
-                text-align: center
-            }
-        }
+    .demo_wrap h1 img {
+        width: 300px
+    }
 
-        .demo_wrap h1 img {
-            width: 300px
-        }
+    .num {
+        width: 12%
+    }
 
-        .num {
-            width: 12%
-        }
+    body {
+        counter-reset: num
+    }
 
-        body {
-            counter-reset: num
-        }
+    table {}
 
-        table {}
+    table th {
+        color: #555;
+        font-size: .813rem;
+        text-align: left;
+        color: #666;
+    }
 
-        table th {
-            color: #555;
-            font-size: .813rem;
-            text-align: left;
-            color: #666;
-        }
+    table td,
+    table th {
+        border-left: none;
+        border-right: none;
+        padding: .4em;
+    }
 
-        table td,
-        table th {
-            border-left: none;
-            border-right: none;
-            padding: .4em;
-        }
+    table td .gray {
+        color: #808080;
+        font-size: .938rem;
+    }
 
-        table td .gray {
-            color: #808080;
-            font-size: .938rem;
-        }
+    table td a {
+        display: block;
+    }
 
-        table td a {
-            display: block;
-        }
+    table tr th:first-child {
+        width: 30px;
+    }
 
-        table tr th:first-child {
-            width: 30px;
-        }
+    table caption {
+        text-align: left;
+        font-weight: bold;
+        font-size: 1.25em;
+        padding: .5em 0;
+        color: #ff5050
+    }
 
-        table caption {
-            text-align: left;
-            font-weight: bold;
-            font-size: 1.25em;
-            padding: .5em 0;
-            color: #ff5050
-        }
+    tbody tr td:first-child:before {
+        counter-increment: num;
+        display: block;
+        text-align: center;
+        color: #888;
+        font-size: .875rem;
+        content: counters(num, ".") " "
+    }
 
-        tbody tr td:first-child:before {
-            counter-increment: num;
-            display: block;
-            text-align: center;
-            color: #888;
-            font-size: .875rem;
-            content: counters(num, ".") " "
-        }
+    tbody tr td:nth-child(2) {
+        width: 200px
+    }
 
-        tbody tr td:nth-child(2) {
-            width: 200px
-        }
+    tbody tr td:nth-child(3) {
+        width: 400px
+    }
 
-        tbody tr td:nth-child(3) {
-            width: 400px
-        }
+    .btn_grp {
+        text-align: right;
+    }
 
+    @media screen and (max-width:545px) {
         .btn_grp {
-            text-align: right;
+            text-align: center;
         }
+    }
 
-        @media screen and (max-width:545px) {
-            .btn_grp {
-                text-align: center;
-            }
-        }
+    .table_wrapper {
+        display: flex;
+        align-items: flex-start;
+    }
 
+    @media screen and (max-width:545px) {
         .table_wrapper {
-            display: flex;
-            align-items: flex-start;
-        }
-
-        @media screen and (max-width:545px) {
-            .table_wrapper {
-                flex-flow: row wrap;
-            }
-
-            .table_wrapper h2 {
-                flex: 1 0 100%;
-                margin-bottom: 1em;
-            }
-        }
-
-        h2 {
-            margin: .5em 0 .25em;
-            font-size: 1rem;
-            line-height: 1.25em;
-            white-space: nowrap;
+            flex-flow: row wrap;
         }
 
         .table_wrapper h2 {
-            flex: 0 0 150px;
-            padding-right: 1em;
+            flex: 1 0 100%;
+            margin-bottom: 1em;
         }
+    }
 
-        hr {
-            border-top: 1px dashed #DDD;
-        }
+    h2 {
+        margin: .5em 0 .25em;
+        font-size: 1rem;
+        line-height: 1.25em;
+        white-space: nowrap;
+    }
+
+    .table_wrapper h2 {
+        flex: 0 0 150px;
+        padding-right: 1em;
+    }
+
+    hr {
+        border-top: 1px dashed #DDD;
+    }
     </style>
 </head>
 
@@ -151,7 +151,7 @@
     <div class="demo_wrap">
         <h1><img src="images/logo.png" alt=""></h1>
         <div class="btn_grp">
-            <a href="https://github.com/HywebU00/hyui_flex" class="btn">切版檔案請按此下載</a>
+            <a href="https://github.com/HywebU00/HyUI_3" class="btn">HyUI3 download</a>
         </div>
         <hr>
         <div class="table_wrapper">
@@ -337,12 +337,12 @@
     <script src="js/hyui.js"></script>
     <script src="js/customize.js"></script>
     <script>
-        $(function () {
-            $('tbody').find('a').each(function (index, el) {
-                var Link = $(this).attr('href');
-                $(this).text(Link);
-            });
-        })
+    $(function() {
+        $('tbody').find('a').each(function(index, el) {
+            var Link = $(this).attr('href');
+            $(this).text(Link);
+        });
+    })
     </script>
 </body>
 
